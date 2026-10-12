@@ -20,22 +20,22 @@ export default class extends BaseSeeder {
     // 2. Insertar vendedores y ventas si no existen
     const vendedoresCount = await Vendedor.query().count('* as total')
     if (Number(vendedoresCount[0].$extras.total) === 0) {
-      const maria = await Vendedor.create({ nombre: 'Maria Garcia' })
-      const juan = await Vendedor.create({ nombre: 'Juan Perez' })
-      const pedro = await Vendedor.create({ nombre: 'Pedro Lopez' })
+      const johann = await Vendedor.create({ nombre: 'Johann Vasquez' })
+      const sara = await Vendedor.create({ nombre: 'Sara Chiriboga' })
+      const tony = await Vendedor.create({ nombre: 'Tony Llanos' })
 
-      // Ventas de Junio 2025
+      // Ventas de Junio 2026
       await Venta.createMany([
-        // Maria suma 2100
-        { vendedorId: maria.id, monto: 1000.00, fechaVenta: DateTime.fromISO('2025-06-10') },
-        { vendedorId: maria.id, monto: 1100.00, fechaVenta: DateTime.fromISO('2025-06-15') },
+        //  suma 2100
+        { vendedorId: johann.id, monto: 1000.00, fechaVenta: DateTime.fromISO('2026-06-10') },
+        { vendedorId: johann.id, monto: 1100.00, fechaVenta: DateTime.fromISO('2026-06-15') },
         
-        // Juan suma 1100.50
-        { vendedorId: juan.id, monto: 500.00, fechaVenta: DateTime.fromISO('2025-06-05') },
-        { vendedorId: juan.id, monto: 600.50, fechaVenta: DateTime.fromISO('2025-06-20') },
+        // suma 1100.50
+        { vendedorId: sara.id, monto: 500.00, fechaVenta: DateTime.fromISO('2026-06-05') },
+        { vendedorId: sara.id, monto: 600.50, fechaVenta: DateTime.fromISO('2026-06-20') },
         
-        // Pedro suma 450
-        { vendedorId: pedro.id, monto: 450.00, fechaVenta: DateTime.fromISO('2025-06-25') },
+        // suma 450
+        { vendedorId: tony.id, monto: 450.00, fechaVenta: DateTime.fromISO('2026-06-25') },
       ])
     }
   }
